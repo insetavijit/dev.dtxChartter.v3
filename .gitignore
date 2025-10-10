@@ -1,0 +1,86 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.so
+*.egg-info/
+.eggs/
+*.egg
+*.manifest
+*.spec
+dist/
+build/
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+.env
+.venv/
+venv/
+ENV/
+env/
+.Python
+
+# Poetry
+poetry.lock
+# (Optional) — if you want to version-lock dependencies, remove the above line.
+
+# Jupyter / Notebooks
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# =========================
+# Node / JavaScript
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+
+# =========================
+# OS / Editor / IDE
+# =========================
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VSCode / JetBrains
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# =========================
+# Project-specific
+# =========================
+# Local folders
+Code/__pycache__/
+Code/.ipynb_checkpoints/
+
+# Ignore any local runtime files or logs
+*.log
+*.tmp
+
+# Optional: OneDrive cache
+*.one
+~$*
+
+# =========================
+# Python environment file
+# =========================
+.python-version
