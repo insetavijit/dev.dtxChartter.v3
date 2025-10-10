@@ -4,12 +4,14 @@
   "description": "",
   "license": "ISC",
   "author": "",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "resample": "node SYS/resample.mjs",
-    "commit:auto": "node SYS/auto-commit.mjs"
+    "commit:auto": "node SYS/auto-commit.mjs",
+	    "commit": "git-cz",
+    "release": "semantic-release"
   },
   "dependencies": {
     "boxen": "^8.0.1",
@@ -24,5 +26,14 @@
   "engines": {
     "node": ">=22.9.0",
     "npm": ">=11.0.0"
+  },
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/npm": "^12.0.2",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^9.1.7",
+    "semantic-release": "^24.2.9"
   }
 }
