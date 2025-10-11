@@ -21,6 +21,17 @@ from dataclasses import dataclass
 from typing import Dict, List, Optional, Tuple
 import logging
 import warnings
+import pandas as pd
+import os
+
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(script_dir, "signaltbl.parquet")
+
+dta = pd.read_parquet(file_path, engine="pyarrow")
+
+dta.head(3)
+
 
 warnings.filterwarnings('ignore')
 
@@ -691,3 +702,25 @@ class EnterpriseTradingFramework:
             'analyzers': analyzers,
             'strategy': self.strategy
         }
+
+
+if __name__ == "__main__":
+    # Load data and auto-detect signals
+    # Expected columns: open, high, low, close, volume, entry, sl, target
+    # signal column will be created automatically
+
+    # Auto-detect signals from entry/sl relationship
+    df = SignalDetector.detect_signals(dta)
+
+    # Create configuration
+    config = TradeConfig(
+        risk_pct=0.02,
+        max_positions=5,
+        max_daily_loss=0.05,
+        cash=100000.0,
+        commission=0.001
+    )
+
+    # Run backtest
+    framework = EnterpriseTradingFramework()
+    results = framework.run_backtest(df, config)

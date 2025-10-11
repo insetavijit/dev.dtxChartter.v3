@@ -469,7 +469,6 @@ class EnterpriseStrategy(bt.Strategy):
                     self.current_positions = max(0, self.current_positions - 1)
             break
 
-
     def _finalize_trade(self, trade_id: str, trade_data: TradeData):
         """
         Complete trade and record to trades journal.
@@ -512,10 +511,6 @@ class EnterpriseStrategy(bt.Strategy):
         else:
             self.losing_trades += 1
 
-        # Compute account balance based on previous trades + current P&L
-        previous_balance = self.trades_table[-1]['account_balance'] if self.trades_table else self.p.cash
-        account_balance = previous_balance + pnl
-
         # Record trade
         self.trades_table.append({
             'trade_id': self.trade_count,
@@ -534,7 +529,7 @@ class EnterpriseStrategy(bt.Strategy):
             'risk_amount': risk * size,
             'reward_amount': reward * size,
             'rr_ratio': rr_ratio,
-            'account_balance': account_balance,
+            'account_balance': self.broker.getvalue(),
             'commission': 0.0
         })
 
