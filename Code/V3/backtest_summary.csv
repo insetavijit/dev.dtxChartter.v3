@@ -1,0 +1,2 @@
+starting_capital,ending_capital,total_pnl,return_pct,buy_signals,sell_signals,total_signals,trades_executed,winning_trades,losing_trades,win_rate,sharpe_ratio,max_drawdown_pct
+100000,100000.0,0.0,0.0,0,9,9,0,0,0,0,,0.0
